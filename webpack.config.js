@@ -1,3 +1,7 @@
+'use strict';
+
+var autoprefixer = require('autoprefixer');
+
 module.exports = {
   entry: './src/index.js',
 
@@ -22,7 +26,24 @@ module.exports = {
           cacheDirectory: true,
           presets: ['react', 'es2015']
         }
-      }
+      },
+      // {
+      //   test: /\.css$/,
+      //   loaders: ['css-loader?importLoaders=1', 'style-loader', 'postcss-loader']
+      // }
     ]
-  }
+  },
+
+  // postcss: function() {
+  //   return [
+  //     autoprefixer({
+  //       browsers: [
+  //         '>1%',
+  //         'last 4 versions',
+  //         'Firefox ESR',
+  //         'not ie < 9', // React doesn't support IE8 anyway
+  //       ]
+  //     }),
+  //   ];
+  // }
 }
