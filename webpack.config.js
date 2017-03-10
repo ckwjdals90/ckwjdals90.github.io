@@ -10,6 +10,10 @@ module.exports = {
     filename: 'bundle.js'
   },
 
+  node: {
+    fs: "empty"
+  },
+
   devServer: {
     inline: true,
     port: 9999,
@@ -27,10 +31,10 @@ module.exports = {
           presets: ['react', 'es2015']
         }
       },
-      // {
-      //   test: /\.css$/,
-      //   loaders: ['css-loader?importLoaders=1', 'style-loader', 'postcss-loader']
-      // }
+      {
+        test: /\.css$/,
+        loaders: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader']
+      }
     ]
   },
 
