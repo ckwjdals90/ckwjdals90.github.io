@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router';
 import './Header.css';
 
 const MenuItem = ({active, children, to}) => (
-    <div className="menu-item">
+    <Link to={to} className="menu-item">
             {children}
-    </div>
+    </Link>
 )
 
 const Header = () => {
@@ -14,10 +15,10 @@ const Header = () => {
                 Jungmin Cha
             </div>
             <div className="menu">
-                <MenuItem>Home</MenuItem>
-                <MenuItem>About</MenuItem>
-                <MenuItem>Protfolio</MenuItem>
-                <MenuItem>Contact</MenuItem>
+                <MenuItem to={'/'}>Home</MenuItem>
+                <MenuItem to={'/about'}>About</MenuItem>
+                <MenuItem to={'/portfolio'}>Protfolio</MenuItem>
+                <MenuItem to={'/contact'}>Contact</MenuItem>
             </div>
         </div>
     );
