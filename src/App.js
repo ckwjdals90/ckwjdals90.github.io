@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 
+import Header from './components/Header';
+
 class App extends Component {
   render() {
     return (
-      <h1>Welcome to Jungmin's World</h1>
+      <div>
+        <Header />
+        {this.props.children}
+      </div>
     );
   }
 }
