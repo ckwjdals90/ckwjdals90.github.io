@@ -1,6 +1,6 @@
 'use strict';
 
-var autoprefixer = require('autoprefixer');
+// var autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: './src/index.js',
@@ -34,6 +34,10 @@ module.exports = {
       {
         test: /\.css$/,
         loaders: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader']
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },

@@ -13,9 +13,6 @@ const Header = (props, context) => {
   const { router } = context;
   return (
     <div>
-      <div className="logo">
-        Jungmin Cha
-      </div>
       <div className="menu">
         <MenuItem to={'/'} active={router.isActive('/', true)}>Home</MenuItem>
         <MenuItem to={'/about'} active={router.isActive('/about')}>About</MenuItem>
