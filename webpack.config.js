@@ -10,7 +10,7 @@ module.exports = {
   entry: './src/index.js',
 
   output: {
-    path: path.resolve(__dirname, "public"),
+    path: path.resolve(__dirname, "dist"),
     filename: "bundle.js"
   },
 
@@ -50,7 +50,7 @@ module.exports = {
   },
 
   devServer: {
-    contentBase: path.join(__dirname, 'public'),
+    contentBase: [path.join(__dirname, ""), path.join(__dirname, "public"), path.join(__dirname, "dist")],
     compress: true,
     historyApiFallback: true,
     hot: true,
