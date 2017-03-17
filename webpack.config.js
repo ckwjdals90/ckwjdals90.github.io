@@ -22,8 +22,30 @@ module.exports = {
 
   module: {
     rules: [
+      // {
+      //   enforce: "pre",
+      //   test: /\.jsx?$/,
+      //   exclude: [
+      //     path.resolve(__dirname, "node_modules")
+      //   ],
+      //   loader: "eslint-loader",
+      // },
       {
-        test: /\.jsx$/,
+        test: /\.js$/,
+        enforce: "pre",
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "jshint-loader",
+            options: {
+              camelcase: true,
+              esversion: 6
+            }
+          }
+        ]
+      },
+      {
+        test: /\.jsx?$/,
         include: [
           path.resolve(__dirname, "src")
         ],
@@ -44,9 +66,13 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [ "style-loader", "css-loader", "sass-loader" ]
+        use: [ "style-loader", "css-loader", "sass-loader", "postcss-loader" ]
       }
     ]
+  },
+
+  resolve: {
+    extensions: ['.js', '.jsx']
   },
 
   devServer: {
