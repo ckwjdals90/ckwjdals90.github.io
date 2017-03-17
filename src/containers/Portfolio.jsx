@@ -1,6 +1,6 @@
 import React from 'react';
-import BigText from '../components/BigText';
-import ProjectLinks from '../components/ProjectLinks';
+import BigText from '../components/BigText.jsx';
+import ProjectLinks from '../components/ProjectLinks.jsx';
 
 const Portfolio = ({children}) => {
   return (

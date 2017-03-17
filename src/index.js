@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import routes from './routes/routes';
+import routes from './routes/routes.jsx';
 
 import './index.scss';
 

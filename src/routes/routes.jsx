@@ -1,12 +1,12 @@
 import React from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import App from '../App';
-import Home from '../containers/Home';
-import About from '../containers/About';
-import Portfolio from '../containers/Portfolio';
-import Project from '../containers/Project';
-import Contact from '../containers/Contact';
+import App from '../App.jsx';
+import Home from '../containers/Home.jsx';
+import About from '../containers/About.jsx';
+import Portfolio from '../containers/Portfolio.jsx';
+import Project from '../containers/Project.jsx';
+import Contact from '../containers/Contact.jsx';
 
 module.exports = (
   <Router history={browserHistory}>
@@ -19,4 +19,4 @@ module.exports = (
       <Route path="contact" component={Contact} />
     </Route>
   </Router>
-)
+);

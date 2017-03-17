@@ -1,57 +1,60 @@
 'use strict';
 
-// var autoprefixer = require('autoprefixer');
+const path = require('path');
 
 module.exports = {
+  // entry: {
+  //   app: path.resolve(__dirname, "src"),
+  //   vendor: [ "react", "react-dom", "react-router" ]
+  // },
   entry: './src/index.js',
 
   output: {
-    path: __dirname + '/public/',
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, "public"),
+    filename: "bundle.js"
   },
 
   node: {
     fs: "empty"
   },
 
-  devServer: {
-    inline: true,
-    port: 9999,
-    contentBase: __dirname + '/public/'
-  },
+  watch: true,
 
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          cacheDirectory: true,
-          presets: ['react', 'es2015']
+        test: /\.jsx$/,
+        include: [
+          path.resolve(__dirname, "src")
+        ],
+        exclude: [
+          path.resolve(__dirname, "node_modules")
+        ],
+        // issuer: { test, include, exclude },
+        // enforce: "pre",
+        // enforce: "post",
+        loader: "babel-loader",
+        options: {
+          presets: [ "react", "es2015" ]
         }
       },
       {
         test: /\.css$/,
-        loaders: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader']
+        use: [ "style-loader", "css-loader", "postcss-loader" ]
       },
       {
         test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader']
+        use: [ "style-loader", "css-loader", "sass-loader" ]
       }
     ]
   },
 
-  // postcss: function() {
-  //   return [
-  //     autoprefixer({
-  //       browsers: [
-  //         '>1%',
-  //         'last 4 versions',
-  //         'Firefox ESR',
-  //         'not ie < 9', // React doesn't support IE8 anyway
-  //       ]
-  //     }),
-  //   ];
-  // }
+  devServer: {
+    contentBase: path.join(__dirname, 'public'),
+    compress: true,
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    port: 9999,
+  }
 }

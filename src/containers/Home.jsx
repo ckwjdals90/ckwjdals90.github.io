@@ -1,5 +1,5 @@
 import React from 'react';
-import BigText from '../components/BigText';
+import BigText from '../components/BigText.jsx';
 
 const Home = () => {
   return (
